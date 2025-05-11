@@ -57,19 +57,26 @@ class _TodoListScreenState extends State<TodoListScreen> {
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
                         return ListTile(
-                          leading:todoListCtrl.todoList[index]['status'] == false? Checkbox(
-                            onChanged: (value) =>
-                                todoListCtrl.toggleTodoStatus(index),
-                            value: todoListCtrl.todoList[index]['status'],
-                          ):const SizedBox.shrink(),
+                          leading: todoListCtrl.todoList[index]['status'] ==
+                                  false
+                              ? Checkbox(
+                                  onChanged: (value) =>
+                                      todoListCtrl.toggleTodoStatus(index),
+                                  value: todoListCtrl.todoList[index]['status'],
+                                )
+                              : const SizedBox.shrink(),
                           title: Text(todoListCtrl.todoList[index]['title']),
                           subtitle: Text(todoListCtrl.todoList[index]['date']),
                           trailing: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               todoListCtrl.todoList[index]['status'] == true
-                                  ? Text("completed",style: GoogleFonts.poppins(
-                                  fontWeight: FontWeight.w700, fontSize: 14),)
+                                  ? Text(
+                                      "completed",
+                                      style: GoogleFonts.poppins(
+                                          fontWeight: FontWeight.w700,
+                                          fontSize: 14),
+                                    )
                                   : const SizedBox.shrink(),
                               IconButton(
                                 icon:
